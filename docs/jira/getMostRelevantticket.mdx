@@ -1,0 +1,19 @@
+# Get Most Relevant Jira Ticket
+
+## Method
+
+POST
+
+## Params
+
+```
+{
+    "user": "string",
+    "pr_title": "string"
+}
+```
+
+Where:
+
+- _user_: email of the user to search (registry on app). Not necessarily Jira email.
+- _pr_title_: Title of the most relevant PR or fallback to latest commit. It will search for hotwords.
