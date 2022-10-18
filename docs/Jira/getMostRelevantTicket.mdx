@@ -1,0 +1,1630 @@
+# Get Most Relevant Jira Ticket
+
+## Route
+
+```
+api/jira/getMostRelevantJiraTicket
+```
+
+## Method
+
+POST
+
+## Params
+
+```
+{
+    "user": "string",
+    "prTitle": "string"
+}
+```
+
+Where:
+
+- _user_: email of the user to search (registry on app). Not necessarily Jira email.
+- _prTitle_: Title of the most relevant PR or fallback to latest commit. It will search for hotwords.
+
+## Response
+
+### Errors
+
+If the user does not exist, there will be no access token
+
+```
+{
+    "error": "no access_token"
+}
+```
+
+If nothing comes in the `user` param
+
+```
+{
+    "error": "no user"
+}
+```
+
+### Success
+
+```
+[
+    {
+        "expand": "operations,versionedRepresentations,editmeta,changelog,customfield_10010.requestTypePractice,renderedFields",
+        "id": "10059",
+        "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/10059",
+        "key": "WM-60",
+        "fields": {
+            "statuscategorychangedate": "2022-10-03T09:19:35.723-0500",
+            "issuetype": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issuetype/10001",
+                "id": "10001",
+                "description": "Functionality or a feature expressed as a user goal.",
+                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+                "name": "Story",
+                "subtask": false,
+                "avatarId": 10315,
+                "hierarchyLevel": 0
+            },
+            "timespent": null,
+            "customfield_10030": null,
+            "project": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/project/10000",
+                "id": "10000",
+                "key": "WM",
+                "name": "Watermelon",
+                "projectTypeKey": "software",
+                "simplified": false,
+                "avatarUrls": {
+                    "48x48": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551",
+                    "24x24": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=small",
+                    "16x16": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=xsmall",
+                    "32x32": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=medium"
+                }
+            },
+            "customfield_10031": null,
+            "customfield_10032": null,
+            "fixVersions": [],
+            "customfield_10033": null,
+            "aggregatetimespent": null,
+            "resolution": null,
+            "customfield_10028": null,
+            "customfield_10029": [],
+            "resolutiondate": null,
+            "workratio": -1,
+            "lastViewed": null,
+            "watches": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/WM-60/watchers",
+                "watchCount": 1,
+                "isWatching": false
+            },
+            "created": "2022-10-03T09:19:24.371-0500",
+            "customfield_10020": null,
+            "customfield_10021": null,
+            "customfield_10022": null,
+            "customfield_10023": null,
+            "priority": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/priority/3",
+                "iconUrl": "https://watermelontools.atlassian.net/images/icons/priorities/medium.svg",
+                "name": "Medium",
+                "id": "3"
+            },
+            "customfield_10024": null,
+            "customfield_10025": null,
+            "labels": [],
+            "customfield_10016": null,
+            "customfield_10017": null,
+            "customfield_10018": {
+                "hasEpicLinkFieldDependency": false,
+                "showField": false,
+                "nonEditableReason": {
+                    "reason": "PLUGIN_LICENSE_ERROR",
+                    "message": "The Parent Link is only available to Jira Premium users."
+                }
+            },
+            "customfield_10019": "0|i000cf:",
+            "timeestimate": null,
+            "aggregatetimeoriginalestimate": null,
+            "versions": [],
+            "issuelinks": [
+                {
+                    "id": "10000",
+                    "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issueLink/10000",
+                    "type": {
+                        "id": "10001",
+                        "name": "Cloners",
+                        "inward": "is cloned by",
+                        "outward": "clones",
+                        "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issueLinkType/10001"
+                    },
+                    "outwardIssue": {
+                        "id": "10057",
+                        "key": "WM-58",
+                        "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/10057",
+                        "fields": {
+                            "summary": "Talk to 2 prospects this week ",
+                            "status": {
+                                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/status/3",
+                                "description": "This issue is being actively worked on at the moment by the assignee.",
+                                "iconUrl": "https://watermelontools.atlassian.net/images/icons/statuses/inprogress.png",
+                                "name": "In Progress",
+                                "id": "3",
+                                "statusCategory": {
+                                    "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/statuscategory/4",
+                                    "id": 4,
+                                    "key": "indeterminate",
+                                    "colorName": "yellow",
+                                    "name": "In Progress"
+                                }
+                            },
+                            "priority": {
+                                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/priority/3",
+                                "iconUrl": "https://watermelontools.atlassian.net/images/icons/priorities/medium.svg",
+                                "name": "Medium",
+                                "id": "3"
+                            },
+                            "issuetype": {
+                                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issuetype/10001",
+                                "id": "10001",
+                                "description": "Functionality or a feature expressed as a user goal.",
+                                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+                                "name": "Story",
+                                "subtask": false,
+                                "avatarId": 10315,
+                                "hierarchyLevel": 0
+                            }
+                        }
+                    }
+                }
+            ],
+            "assignee": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b6df506317006b092e68",
+                "accountId": "6205b6df506317006b092e68",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "24x24": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "16x16": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "32x32": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png"
+                },
+                "displayName": "Esteban Vargas",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "updated": "2022-10-07T08:19:58.741-0500",
+            "status": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/status/10003",
+                "description": "Este estado es administrado internamente por Jira Software",
+                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/",
+                "name": "Ready For Review",
+                "id": "10003",
+                "statusCategory": {
+                    "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/statuscategory/4",
+                    "id": 4,
+                    "key": "indeterminate",
+                    "colorName": "yellow",
+                    "name": "In Progress"
+                }
+            },
+            "components": [],
+            "timeoriginalestimate": null,
+            "description": {
+                "version": 1,
+                "type": "doc",
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "Talk to 2 engineering leads this week. This could be CTO, tech lead, engineering manager, or any other role name that involves technical leadership. "
+                            }
+                        ]
+                    }
+                ]
+            },
+            "customfield_10010": null,
+            "customfield_10014": null,
+            "customfield_10015": null,
+            "customfield_10005": null,
+            "customfield_10006": null,
+            "security": null,
+            "customfield_10007": null,
+            "customfield_10008": null,
+            "customfield_10009": null,
+            "aggregatetimeestimate": null,
+            "summary": "CLONE - Talk to 2 prospects this week",
+            "creator": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b6df506317006b092e68",
+                "accountId": "6205b6df506317006b092e68",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "24x24": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "16x16": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "32x32": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png"
+                },
+                "displayName": "Esteban Vargas",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "subtasks": [],
+            "reporter": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b6df506317006b092e68",
+                "accountId": "6205b6df506317006b092e68",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "24x24": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "16x16": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "32x32": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png"
+                },
+                "displayName": "Esteban Vargas",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "aggregateprogress": {
+                "progress": 0,
+                "total": 0
+            },
+            "customfield_10001": null,
+            "customfield_10002": null,
+            "customfield_10003": null,
+            "customfield_10004": null,
+            "environment": null,
+            "duedate": null,
+            "progress": {
+                "progress": 0,
+                "total": 0
+            },
+            "votes": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/WM-60/votes",
+                "votes": 0,
+                "hasVoted": false
+            }
+        }
+    },
+    {
+        "expand": "operations,versionedRepresentations,editmeta,changelog,customfield_10010.requestTypePractice,renderedFields",
+        "id": "10057",
+        "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/10057",
+        "key": "WM-58",
+        "fields": {
+            "statuscategorychangedate": "2022-09-26T18:55:05.385-0500",
+            "issuetype": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issuetype/10001",
+                "id": "10001",
+                "description": "Functionality or a feature expressed as a user goal.",
+                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+                "name": "Story",
+                "subtask": false,
+                "avatarId": 10315,
+                "hierarchyLevel": 0
+            },
+            "timespent": null,
+            "customfield_10030": null,
+            "project": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/project/10000",
+                "id": "10000",
+                "key": "WM",
+                "name": "Watermelon",
+                "projectTypeKey": "software",
+                "simplified": false,
+                "avatarUrls": {
+                    "48x48": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551",
+                    "24x24": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=small",
+                    "16x16": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=xsmall",
+                    "32x32": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=medium"
+                }
+            },
+            "customfield_10031": null,
+            "customfield_10032": null,
+            "fixVersions": [],
+            "customfield_10033": null,
+            "aggregatetimespent": null,
+            "resolution": null,
+            "customfield_10028": null,
+            "customfield_10029": [],
+            "resolutiondate": null,
+            "workratio": -1,
+            "watches": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/WM-58/watchers",
+                "watchCount": 1,
+                "isWatching": false
+            },
+            "lastViewed": null,
+            "created": "2022-09-26T10:17:52.696-0500",
+            "customfield_10020": null,
+            "customfield_10021": null,
+            "customfield_10022": null,
+            "customfield_10023": null,
+            "priority": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/priority/3",
+                "iconUrl": "https://watermelontools.atlassian.net/images/icons/priorities/medium.svg",
+                "name": "Medium",
+                "id": "3"
+            },
+            "customfield_10024": null,
+            "customfield_10025": null,
+            "labels": [],
+            "customfield_10016": null,
+            "customfield_10017": null,
+            "customfield_10018": {
+                "hasEpicLinkFieldDependency": false,
+                "showField": false,
+                "nonEditableReason": {
+                    "reason": "PLUGIN_LICENSE_ERROR",
+                    "message": "The Parent Link is only available to Jira Premium users."
+                }
+            },
+            "customfield_10019": "0|i000bz:",
+            "timeestimate": null,
+            "aggregatetimeoriginalestimate": null,
+            "versions": [],
+            "issuelinks": [
+                {
+                    "id": "10000",
+                    "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issueLink/10000",
+                    "type": {
+                        "id": "10001",
+                        "name": "Cloners",
+                        "inward": "is cloned by",
+                        "outward": "clones",
+                        "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issueLinkType/10001"
+                    },
+                    "inwardIssue": {
+                        "id": "10059",
+                        "key": "WM-60",
+                        "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/10059",
+                        "fields": {
+                            "summary": "CLONE - Talk to 2 prospects this week",
+                            "status": {
+                                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/status/10003",
+                                "description": "Este estado es administrado internamente por Jira Software",
+                                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/",
+                                "name": "Ready For Review",
+                                "id": "10003",
+                                "statusCategory": {
+                                    "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/statuscategory/4",
+                                    "id": 4,
+                                    "key": "indeterminate",
+                                    "colorName": "yellow",
+                                    "name": "In Progress"
+                                }
+                            },
+                            "priority": {
+                                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/priority/3",
+                                "iconUrl": "https://watermelontools.atlassian.net/images/icons/priorities/medium.svg",
+                                "name": "Medium",
+                                "id": "3"
+                            },
+                            "issuetype": {
+                                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issuetype/10001",
+                                "id": "10001",
+                                "description": "Functionality or a feature expressed as a user goal.",
+                                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+                                "name": "Story",
+                                "subtask": false,
+                                "avatarId": 10315,
+                                "hierarchyLevel": 0
+                            }
+                        }
+                    }
+                }
+            ],
+            "assignee": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b86c506317006b092eec",
+                "accountId": "6205b86c506317006b092eec",
+                "avatarUrls": {
+                    "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/6205b86c506317006b092eec/16e8e25b-7175-416e-94ae-2363ccd824f6/48",
+                    "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/6205b86c506317006b092eec/16e8e25b-7175-416e-94ae-2363ccd824f6/24",
+                    "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/6205b86c506317006b092eec/16e8e25b-7175-416e-94ae-2363ccd824f6/16",
+                    "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/6205b86c506317006b092eec/16e8e25b-7175-416e-94ae-2363ccd824f6/32"
+                },
+                "displayName": "Esteban Dalel",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "updated": "2022-10-03T09:19:25.204-0500",
+            "status": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/status/3",
+                "description": "This issue is being actively worked on at the moment by the assignee.",
+                "iconUrl": "https://watermelontools.atlassian.net/images/icons/statuses/inprogress.png",
+                "name": "In Progress",
+                "id": "3",
+                "statusCategory": {
+                    "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/statuscategory/4",
+                    "id": 4,
+                    "key": "indeterminate",
+                    "colorName": "yellow",
+                    "name": "In Progress"
+                }
+            },
+            "components": [],
+            "timeoriginalestimate": null,
+            "description": {
+                "version": 1,
+                "type": "doc",
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "Talk to 2 engineering leads this week. This could be CTO, tech lead, engineering manager, or any other role name that involves technical leadership. "
+                            }
+                        ]
+                    }
+                ]
+            },
+            "customfield_10010": null,
+            "customfield_10014": null,
+            "customfield_10015": null,
+            "customfield_10005": null,
+            "customfield_10006": null,
+            "security": null,
+            "customfield_10007": null,
+            "customfield_10008": null,
+            "aggregatetimeestimate": null,
+            "customfield_10009": null,
+            "summary": "Talk to 2 prospects this week ",
+            "creator": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b6df506317006b092e68",
+                "accountId": "6205b6df506317006b092e68",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "24x24": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "16x16": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "32x32": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png"
+                },
+                "displayName": "Esteban Vargas",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "subtasks": [],
+            "reporter": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b6df506317006b092e68",
+                "accountId": "6205b6df506317006b092e68",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "24x24": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "16x16": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "32x32": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png"
+                },
+                "displayName": "Esteban Vargas",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "aggregateprogress": {
+                "progress": 0,
+                "total": 0
+            },
+            "customfield_10001": null,
+            "customfield_10002": null,
+            "customfield_10003": null,
+            "customfield_10004": null,
+            "environment": null,
+            "duedate": null,
+            "progress": {
+                "progress": 0,
+                "total": 0
+            },
+            "votes": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/WM-58/votes",
+                "votes": 0,
+                "hasVoted": false
+            }
+        }
+    },
+    {
+        "expand": "operations,versionedRepresentations,editmeta,changelog,customfield_10010.requestTypePractice,renderedFields",
+        "id": "10053",
+        "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/10053",
+        "key": "WM-54",
+        "fields": {
+            "statuscategorychangedate": "2022-10-03T09:22:03.218-0500",
+            "issuetype": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issuetype/10001",
+                "id": "10001",
+                "description": "Functionality or a feature expressed as a user goal.",
+                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+                "name": "Story",
+                "subtask": false,
+                "avatarId": 10315,
+                "hierarchyLevel": 0
+            },
+            "timespent": null,
+            "customfield_10030": null,
+            "customfield_10031": null,
+            "project": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/project/10000",
+                "id": "10000",
+                "key": "WM",
+                "name": "Watermelon",
+                "projectTypeKey": "software",
+                "simplified": false,
+                "avatarUrls": {
+                    "48x48": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551",
+                    "24x24": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=small",
+                    "16x16": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=xsmall",
+                    "32x32": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=medium"
+                }
+            },
+            "customfield_10032": null,
+            "customfield_10033": null,
+            "fixVersions": [],
+            "aggregatetimespent": null,
+            "resolution": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/resolution/10000",
+                "id": "10000",
+                "description": "Work has been completed on this issue.",
+                "name": "Done"
+            },
+            "customfield_10028": null,
+            "customfield_10029": [],
+            "resolutiondate": "2022-10-03T09:22:03.214-0500",
+            "workratio": -1,
+            "watches": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/WM-54/watchers",
+                "watchCount": 1,
+                "isWatching": true
+            },
+            "lastViewed": null,
+            "created": "2022-09-25T13:24:50.496-0500",
+            "customfield_10020": null,
+            "customfield_10021": null,
+            "customfield_10022": null,
+            "priority": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/priority/3",
+                "iconUrl": "https://watermelontools.atlassian.net/images/icons/priorities/medium.svg",
+                "name": "Medium",
+                "id": "3"
+            },
+            "customfield_10023": null,
+            "customfield_10024": null,
+            "customfield_10025": "3_*:*_1_*:*_841746_*|*_10000_*:*_1_*:*_328_*|*_10002_*:*_1_*:*_0_*|*_10003_*:*_1_*:*_675790680",
+            "labels": [],
+            "customfield_10016": null,
+            "customfield_10017": null,
+            "customfield_10018": {
+                "hasEpicLinkFieldDependency": false,
+                "showField": false,
+                "nonEditableReason": {
+                    "reason": "PLUGIN_LICENSE_ERROR",
+                    "message": "The Parent Link is only available to Jira Premium users."
+                }
+            },
+            "customfield_10019": "0|i000b3:",
+            "aggregatetimeoriginalestimate": null,
+            "timeestimate": null,
+            "versions": [],
+            "issuelinks": [],
+            "assignee": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=5b2969b4edacc156e2f37b21",
+                "accountId": "5b2969b4edacc156e2f37b21",
+                "emailAddress": "estebandalelr@gmail.com",
+                "avatarUrls": {
+                    "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5b2969b4edacc156e2f37b21/a507d8c4-4f38-493f-b807-ebc6c6c948bd/48",
+                    "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5b2969b4edacc156e2f37b21/a507d8c4-4f38-493f-b807-ebc6c6c948bd/24",
+                    "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5b2969b4edacc156e2f37b21/a507d8c4-4f38-493f-b807-ebc6c6c948bd/16",
+                    "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5b2969b4edacc156e2f37b21/a507d8c4-4f38-493f-b807-ebc6c6c948bd/32"
+                },
+                "displayName": "Esteban Dalel R",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "updated": "2022-10-03T09:22:03.218-0500",
+            "status": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/status/10002",
+                "description": "",
+                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/",
+                "name": "Done",
+                "id": "10002",
+                "statusCategory": {
+                    "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/statuscategory/3",
+                    "id": 3,
+                    "key": "done",
+                    "colorName": "green",
+                    "name": "Done"
+                }
+            },
+            "components": [],
+            "timeoriginalestimate": null,
+            "description": null,
+            "customfield_10010": null,
+            "customfield_10014": null,
+            "customfield_10015": null,
+            "customfield_10005": null,
+            "customfield_10006": null,
+            "customfield_10007": null,
+            "security": null,
+            "customfield_10008": null,
+            "aggregatetimeestimate": null,
+            "customfield_10009": null,
+            "summary": "Fix stacking of elements in the extension",
+            "creator": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=5b2969b4edacc156e2f37b21",
+                "accountId": "5b2969b4edacc156e2f37b21",
+                "emailAddress": "estebandalelr@gmail.com",
+                "avatarUrls": {
+                    "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5b2969b4edacc156e2f37b21/a507d8c4-4f38-493f-b807-ebc6c6c948bd/48",
+                    "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5b2969b4edacc156e2f37b21/a507d8c4-4f38-493f-b807-ebc6c6c948bd/24",
+                    "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5b2969b4edacc156e2f37b21/a507d8c4-4f38-493f-b807-ebc6c6c948bd/16",
+                    "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5b2969b4edacc156e2f37b21/a507d8c4-4f38-493f-b807-ebc6c6c948bd/32"
+                },
+                "displayName": "Esteban Dalel R",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "subtasks": [],
+            "reporter": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=5b2969b4edacc156e2f37b21",
+                "accountId": "5b2969b4edacc156e2f37b21",
+                "emailAddress": "estebandalelr@gmail.com",
+                "avatarUrls": {
+                    "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5b2969b4edacc156e2f37b21/a507d8c4-4f38-493f-b807-ebc6c6c948bd/48",
+                    "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5b2969b4edacc156e2f37b21/a507d8c4-4f38-493f-b807-ebc6c6c948bd/24",
+                    "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5b2969b4edacc156e2f37b21/a507d8c4-4f38-493f-b807-ebc6c6c948bd/16",
+                    "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5b2969b4edacc156e2f37b21/a507d8c4-4f38-493f-b807-ebc6c6c948bd/32"
+                },
+                "displayName": "Esteban Dalel R",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "aggregateprogress": {
+                "progress": 0,
+                "total": 0
+            },
+            "customfield_10001": null,
+            "customfield_10002": null,
+            "customfield_10003": null,
+            "customfield_10004": null,
+            "environment": null,
+            "duedate": null,
+            "progress": {
+                "progress": 0,
+                "total": 0
+            },
+            "votes": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/WM-54/votes",
+                "votes": 0,
+                "hasVoted": false
+            }
+        }
+    },
+    {
+        "expand": "operations,versionedRepresentations,editmeta,changelog,customfield_10010.requestTypePractice,renderedFields",
+        "id": "10041",
+        "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/10041",
+        "key": "WM-42",
+        "fields": {
+            "statuscategorychangedate": "2022-10-03T09:21:59.593-0500",
+            "issuetype": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issuetype/10001",
+                "id": "10001",
+                "description": "Functionality or a feature expressed as a user goal.",
+                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+                "name": "Story",
+                "subtask": false,
+                "avatarId": 10315,
+                "hierarchyLevel": 0
+            },
+            "timespent": null,
+            "customfield_10030": null,
+            "customfield_10031": null,
+            "project": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/project/10000",
+                "id": "10000",
+                "key": "WM",
+                "name": "Watermelon",
+                "projectTypeKey": "software",
+                "simplified": false,
+                "avatarUrls": {
+                    "48x48": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551",
+                    "24x24": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=small",
+                    "16x16": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=xsmall",
+                    "32x32": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=medium"
+                }
+            },
+            "customfield_10032": null,
+            "fixVersions": [],
+            "customfield_10033": null,
+            "aggregatetimespent": null,
+            "resolution": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/resolution/10000",
+                "id": "10000",
+                "description": "Work has been completed on this issue.",
+                "name": "Done"
+            },
+            "customfield_10028": null,
+            "customfield_10029": [],
+            "resolutiondate": "2022-10-03T09:21:59.590-0500",
+            "workratio": -1,
+            "watches": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/WM-42/watchers",
+                "watchCount": 1,
+                "isWatching": false
+            },
+            "lastViewed": null,
+            "created": "2022-09-12T13:06:52.556-0500",
+            "customfield_10020": null,
+            "customfield_10021": null,
+            "customfield_10022": null,
+            "priority": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/priority/3",
+                "iconUrl": "https://watermelontools.atlassian.net/images/icons/priorities/medium.svg",
+                "name": "Medium",
+                "id": "3"
+            },
+            "customfield_10023": null,
+            "customfield_10024": null,
+            "customfield_10025": "3_*:*_1_*:*_872661655_*|*_10000_*:*_1_*:*_26647_*|*_10002_*:*_1_*:*_0_*|*_10001_*:*_1_*:*_7894029_*|*_10003_*:*_1_*:*_920324721",
+            "labels": [],
+            "customfield_10016": null,
+            "customfield_10017": null,
+            "customfield_10018": {
+                "hasEpicLinkFieldDependency": false,
+                "showField": false,
+                "nonEditableReason": {
+                    "reason": "PLUGIN_LICENSE_ERROR",
+                    "message": "The Parent Link is only available to Jira Premium users."
+                }
+            },
+            "customfield_10019": "0|i0008f:",
+            "aggregatetimeoriginalestimate": null,
+            "timeestimate": null,
+            "versions": [],
+            "issuelinks": [],
+            "assignee": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=5b2969b4edacc156e2f37b21",
+                "accountId": "5b2969b4edacc156e2f37b21",
+                "emailAddress": "estebandalelr@gmail.com",
+                "avatarUrls": {
+                    "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5b2969b4edacc156e2f37b21/a507d8c4-4f38-493f-b807-ebc6c6c948bd/48",
+                    "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5b2969b4edacc156e2f37b21/a507d8c4-4f38-493f-b807-ebc6c6c948bd/24",
+                    "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5b2969b4edacc156e2f37b21/a507d8c4-4f38-493f-b807-ebc6c6c948bd/16",
+                    "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/5b2969b4edacc156e2f37b21/a507d8c4-4f38-493f-b807-ebc6c6c948bd/32"
+                },
+                "displayName": "Esteban Dalel R",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "updated": "2022-10-03T09:21:59.593-0500",
+            "status": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/status/10002",
+                "description": "",
+                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/",
+                "name": "Done",
+                "id": "10002",
+                "statusCategory": {
+                    "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/statuscategory/3",
+                    "id": 3,
+                    "key": "done",
+                    "colorName": "green",
+                    "name": "Done"
+                }
+            },
+            "components": [],
+            "timeoriginalestimate": null,
+            "description": null,
+            "customfield_10010": null,
+            "customfield_10014": null,
+            "customfield_10015": null,
+            "customfield_10005": null,
+            "customfield_10006": null,
+            "customfield_10007": null,
+            "security": null,
+            "customfield_10008": null,
+            "customfield_10009": null,
+            "aggregatetimeestimate": null,
+            "summary": "Check Jira",
+            "creator": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b6df506317006b092e68",
+                "accountId": "6205b6df506317006b092e68",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "24x24": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "16x16": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "32x32": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png"
+                },
+                "displayName": "Esteban Vargas",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "subtasks": [],
+            "reporter": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b6df506317006b092e68",
+                "accountId": "6205b6df506317006b092e68",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "24x24": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "16x16": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "32x32": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png"
+                },
+                "displayName": "Esteban Vargas",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "aggregateprogress": {
+                "progress": 0,
+                "total": 0
+            },
+            "customfield_10001": null,
+            "customfield_10002": null,
+            "customfield_10003": null,
+            "customfield_10004": null,
+            "environment": null,
+            "duedate": null,
+            "progress": {
+                "progress": 0,
+                "total": 0
+            },
+            "votes": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/WM-42/votes",
+                "votes": 0,
+                "hasVoted": false
+            }
+        }
+    },
+    {
+        "expand": "operations,versionedRepresentations,editmeta,changelog,customfield_10010.requestTypePractice,renderedFields",
+        "id": "10034",
+        "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/10034",
+        "key": "WM-35",
+        "fields": {
+            "statuscategorychangedate": "2022-08-23T20:12:40.301-0500",
+            "issuetype": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issuetype/10001",
+                "id": "10001",
+                "description": "Functionality or a feature expressed as a user goal.",
+                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+                "name": "Story",
+                "subtask": false,
+                "avatarId": 10315,
+                "hierarchyLevel": 0
+            },
+            "timespent": null,
+            "customfield_10030": null,
+            "customfield_10031": null,
+            "project": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/project/10000",
+                "id": "10000",
+                "key": "WM",
+                "name": "Watermelon",
+                "projectTypeKey": "software",
+                "simplified": false,
+                "avatarUrls": {
+                    "48x48": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551",
+                    "24x24": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=small",
+                    "16x16": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=xsmall",
+                    "32x32": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=medium"
+                }
+            },
+            "customfield_10032": null,
+            "fixVersions": [],
+            "customfield_10033": null,
+            "aggregatetimespent": null,
+            "resolution": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/resolution/10000",
+                "id": "10000",
+                "description": "Work has been completed on this issue.",
+                "name": "Done"
+            },
+            "customfield_10028": null,
+            "customfield_10029": [],
+            "resolutiondate": "2022-08-23T20:12:40.296-0500",
+            "workratio": -1,
+            "lastViewed": null,
+            "watches": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/WM-35/watchers",
+                "watchCount": 1,
+                "isWatching": false
+            },
+            "created": "2022-08-22T12:48:11.504-0500",
+            "customfield_10020": null,
+            "customfield_10021": null,
+            "customfield_10022": null,
+            "priority": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/priority/3",
+                "iconUrl": "https://watermelontools.atlassian.net/images/icons/priorities/medium.svg",
+                "name": "Medium",
+                "id": "3"
+            },
+            "customfield_10023": null,
+            "customfield_10024": null,
+            "customfield_10025": "3_*:*_1_*:*_5644914_*|*_10000_*:*_1_*:*_6759_*|*_10002_*:*_2_*:*_12049_*|*_10001_*:*_1_*:*_15832252_*|*_10003_*:*_2_*:*_91572841",
+            "labels": [],
+            "customfield_10016": null,
+            "customfield_10017": null,
+            "customfield_10018": {
+                "hasEpicLinkFieldDependency": false,
+                "showField": false,
+                "nonEditableReason": {
+                    "reason": "PLUGIN_LICENSE_ERROR",
+                    "message": "The Parent Link is only available to Jira Premium users."
+                }
+            },
+            "customfield_10019": "0|i00073:",
+            "timeestimate": null,
+            "aggregatetimeoriginalestimate": null,
+            "versions": [],
+            "issuelinks": [],
+            "assignee": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=557058%3A74fdf62b-91b3-4e8f-9e93-cecf40224042",
+                "accountId": "557058:74fdf62b-91b3-4e8f-9e93-cecf40224042",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/41b9d0343fb01b52c97dbbecc55a1ae3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-4.png",
+                    "24x24": "https://secure.gravatar.com/avatar/41b9d0343fb01b52c97dbbecc55a1ae3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-4.png",
+                    "16x16": "https://secure.gravatar.com/avatar/41b9d0343fb01b52c97dbbecc55a1ae3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-4.png",
+                    "32x32": "https://secure.gravatar.com/avatar/41b9d0343fb01b52c97dbbecc55a1ae3?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-4.png"
+                },
+                "displayName": "Esteban Vargas",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "updated": "2022-08-23T20:12:40.301-0500",
+            "status": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/status/10002",
+                "description": "",
+                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/",
+                "name": "Done",
+                "id": "10002",
+                "statusCategory": {
+                    "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/statuscategory/3",
+                    "id": 3,
+                    "key": "done",
+                    "colorName": "green",
+                    "name": "Done"
+                }
+            },
+            "components": [],
+            "timeoriginalestimate": null,
+            "description": null,
+            "customfield_10010": null,
+            "customfield_10014": null,
+            "customfield_10015": null,
+            "customfield_10005": null,
+            "customfield_10006": null,
+            "security": null,
+            "customfield_10007": null,
+            "customfield_10008": null,
+            "aggregatetimeestimate": null,
+            "customfield_10009": null,
+            "summary": "Improve code context box",
+            "creator": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b6df506317006b092e68",
+                "accountId": "6205b6df506317006b092e68",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "24x24": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "16x16": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "32x32": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png"
+                },
+                "displayName": "Esteban Vargas",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "subtasks": [],
+            "reporter": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b6df506317006b092e68",
+                "accountId": "6205b6df506317006b092e68",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "24x24": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "16x16": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "32x32": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png"
+                },
+                "displayName": "Esteban Vargas",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "aggregateprogress": {
+                "progress": 0,
+                "total": 0
+            },
+            "customfield_10001": null,
+            "customfield_10002": null,
+            "customfield_10003": null,
+            "customfield_10004": null,
+            "environment": null,
+            "duedate": null,
+            "progress": {
+                "progress": 0,
+                "total": 0
+            },
+            "votes": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/WM-35/votes",
+                "votes": 0,
+                "hasVoted": false
+            }
+        }
+    },
+    {
+        "expand": "operations,versionedRepresentations,editmeta,changelog,customfield_10010.requestTypePractice,renderedFields",
+        "id": "10030",
+        "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/10030",
+        "key": "WM-31",
+        "fields": {
+            "statuscategorychangedate": "2022-08-29T12:35:31.593-0500",
+            "issuetype": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issuetype/10001",
+                "id": "10001",
+                "description": "Functionality or a feature expressed as a user goal.",
+                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/2/universal_avatar/view/type/issuetype/avatar/10315?size=medium",
+                "name": "Story",
+                "subtask": false,
+                "avatarId": 10315,
+                "hierarchyLevel": 0
+            },
+            "timespent": null,
+            "customfield_10030": null,
+            "project": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/project/10000",
+                "id": "10000",
+                "key": "WM",
+                "name": "Watermelon",
+                "projectTypeKey": "software",
+                "simplified": false,
+                "avatarUrls": {
+                    "48x48": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551",
+                    "24x24": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=small",
+                    "16x16": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=xsmall",
+                    "32x32": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=medium"
+                }
+            },
+            "customfield_10031": null,
+            "customfield_10032": null,
+            "fixVersions": [],
+            "customfield_10033": null,
+            "aggregatetimespent": null,
+            "resolution": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/resolution/10000",
+                "id": "10000",
+                "description": "Work has been completed on this issue.",
+                "name": "Done"
+            },
+            "customfield_10028": null,
+            "customfield_10029": [],
+            "resolutiondate": "2022-08-29T12:35:31.589-0500",
+            "workratio": -1,
+            "lastViewed": null,
+            "watches": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/WM-31/watchers",
+                "watchCount": 1,
+                "isWatching": false
+            },
+            "created": "2022-08-22T12:25:40.321-0500",
+            "customfield_10020": null,
+            "customfield_10021": null,
+            "customfield_10022": null,
+            "customfield_10023": null,
+            "priority": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/priority/3",
+                "iconUrl": "https://watermelontools.atlassian.net/images/icons/priorities/medium.svg",
+                "name": "Medium",
+                "id": "3"
+            },
+            "customfield_10024": null,
+            "customfield_10025": "10000_*:*_1_*:*_4046_*|*_10002_*:*_1_*:*_0_*|*_10001_*:*_1_*:*_605387242",
+            "labels": [],
+            "customfield_10016": null,
+            "customfield_10017": null,
+            "customfield_10018": {
+                "hasEpicLinkFieldDependency": false,
+                "showField": false,
+                "nonEditableReason": {
+                    "reason": "PLUGIN_LICENSE_ERROR",
+                    "message": "The Parent Link is only available to Jira Premium users."
+                }
+            },
+            "customfield_10019": "0|i00067:",
+            "aggregatetimeoriginalestimate": null,
+            "timeestimate": null,
+            "versions": [],
+            "issuelinks": [],
+            "assignee": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b86c506317006b092eec",
+                "accountId": "6205b86c506317006b092eec",
+                "avatarUrls": {
+                    "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/6205b86c506317006b092eec/16e8e25b-7175-416e-94ae-2363ccd824f6/48",
+                    "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/6205b86c506317006b092eec/16e8e25b-7175-416e-94ae-2363ccd824f6/24",
+                    "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/6205b86c506317006b092eec/16e8e25b-7175-416e-94ae-2363ccd824f6/16",
+                    "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/6205b86c506317006b092eec/16e8e25b-7175-416e-94ae-2363ccd824f6/32"
+                },
+                "displayName": "Esteban Dalel",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "updated": "2022-08-29T12:35:31.593-0500",
+            "status": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/status/10002",
+                "description": "",
+                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/",
+                "name": "Done",
+                "id": "10002",
+                "statusCategory": {
+                    "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/statuscategory/3",
+                    "id": 3,
+                    "key": "done",
+                    "colorName": "green",
+                    "name": "Done"
+                }
+            },
+            "components": [],
+            "timeoriginalestimate": null,
+            "description": null,
+            "customfield_10010": null,
+            "customfield_10014": null,
+            "customfield_10015": null,
+            "customfield_10005": null,
+            "customfield_10006": null,
+            "customfield_10007": null,
+            "security": null,
+            "customfield_10008": null,
+            "customfield_10009": null,
+            "aggregatetimeestimate": null,
+            "summary": "Fix access token refreshing",
+            "creator": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b6df506317006b092e68",
+                "accountId": "6205b6df506317006b092e68",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "24x24": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "16x16": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "32x32": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png"
+                },
+                "displayName": "Esteban Vargas",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "subtasks": [],
+            "reporter": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b6df506317006b092e68",
+                "accountId": "6205b6df506317006b092e68",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "24x24": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "16x16": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "32x32": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png"
+                },
+                "displayName": "Esteban Vargas",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "aggregateprogress": {
+                "progress": 0,
+                "total": 0
+            },
+            "customfield_10001": null,
+            "customfield_10002": null,
+            "customfield_10003": null,
+            "customfield_10004": null,
+            "environment": null,
+            "duedate": null,
+            "progress": {
+                "progress": 0,
+                "total": 0
+            },
+            "votes": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/WM-31/votes",
+                "votes": 0,
+                "hasVoted": false
+            }
+        }
+    },
+    {
+        "expand": "operations,versionedRepresentations,editmeta,changelog,customfield_10010.requestTypePractice,renderedFields",
+        "id": "10013",
+        "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/10013",
+        "key": "WM-14",
+        "fields": {
+            "statuscategorychangedate": "2022-03-24T13:31:57.782-0500",
+            "issuetype": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issuetype/10004",
+                "id": "10004",
+                "description": "A problem or error.",
+                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
+                "name": "Bug",
+                "subtask": false,
+                "avatarId": 10303,
+                "hierarchyLevel": 0
+            },
+            "timespent": null,
+            "customfield_10030": null,
+            "project": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/project/10000",
+                "id": "10000",
+                "key": "WM",
+                "name": "Watermelon",
+                "projectTypeKey": "software",
+                "simplified": false,
+                "avatarUrls": {
+                    "48x48": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551",
+                    "24x24": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=small",
+                    "16x16": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=xsmall",
+                    "32x32": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=medium"
+                }
+            },
+            "customfield_10031": null,
+            "customfield_10032": null,
+            "customfield_10033": null,
+            "fixVersions": [
+                {
+                    "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/version/10001",
+                    "id": "10001",
+                    "description": "",
+                    "name": "April 4",
+                    "archived": false,
+                    "released": true,
+                    "releaseDate": "2022-04-04"
+                }
+            ],
+            "aggregatetimespent": null,
+            "resolution": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/resolution/10000",
+                "id": "10000",
+                "description": "Work has been completed on this issue.",
+                "name": "Done"
+            },
+            "customfield_10029": [],
+            "resolutiondate": "2022-03-24T13:31:57.777-0500",
+            "workratio": -1,
+            "watches": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/WM-14/watchers",
+                "watchCount": 1,
+                "isWatching": false
+            },
+            "lastViewed": null,
+            "created": "2022-03-11T16:56:20.002-0500",
+            "customfield_10020": null,
+            "customfield_10021": null,
+            "customfield_10022": null,
+            "priority": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/priority/3",
+                "iconUrl": "https://watermelontools.atlassian.net/images/icons/priorities/medium.svg",
+                "name": "Medium",
+                "id": "3"
+            },
+            "customfield_10023": null,
+            "customfield_10024": null,
+            "customfield_10025": "10000_*:*_1_*:*_1110937797_*|*_10002_*:*_1_*:*_0",
+            "labels": [],
+            "customfield_10016": null,
+            "customfield_10017": null,
+            "customfield_10018": {
+                "hasEpicLinkFieldDependency": false,
+                "showField": false,
+                "nonEditableReason": {
+                    "reason": "PLUGIN_LICENSE_ERROR",
+                    "message": "The Parent Link is only available to Jira Premium users."
+                }
+            },
+            "customfield_10019": "0|i0002v:",
+            "timeestimate": null,
+            "aggregatetimeoriginalestimate": null,
+            "versions": [],
+            "issuelinks": [],
+            "assignee": null,
+            "updated": "2022-03-29T09:40:15.983-0500",
+            "status": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/status/10002",
+                "description": "",
+                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/",
+                "name": "Done",
+                "id": "10002",
+                "statusCategory": {
+                    "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/statuscategory/3",
+                    "id": 3,
+                    "key": "done",
+                    "colorName": "green",
+                    "name": "Done"
+                }
+            },
+            "components": [],
+            "timeoriginalestimate": null,
+            "description": {
+                "version": 1,
+                "type": "doc",
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "Given a user selects the last line of a file "
+                            }
+                        ]
+                    },
+                    {
+                        "type": "paragraph",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "When she runs a watermelon query"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "paragraph",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "Then git blame shouldn’t throw an error"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "customfield_10010": null,
+            "customfield_10014": null,
+            "customfield_10015": null,
+            "customfield_10005": null,
+            "customfield_10006": null,
+            "security": null,
+            "customfield_10007": null,
+            "customfield_10008": null,
+            "aggregatetimeestimate": null,
+            "customfield_10009": null,
+            "summary": "Fix last line git blame bug",
+            "creator": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b6df506317006b092e68",
+                "accountId": "6205b6df506317006b092e68",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "24x24": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "16x16": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "32x32": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png"
+                },
+                "displayName": "Esteban Vargas",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "subtasks": [],
+            "reporter": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b6df506317006b092e68",
+                "accountId": "6205b6df506317006b092e68",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "24x24": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "16x16": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "32x32": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png"
+                },
+                "displayName": "Esteban Vargas",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "aggregateprogress": {
+                "progress": 0,
+                "total": 0
+            },
+            "customfield_10001": null,
+            "customfield_10002": null,
+            "customfield_10003": null,
+            "customfield_10004": null,
+            "environment": null,
+            "duedate": null,
+            "progress": {
+                "progress": 0,
+                "total": 0
+            },
+            "votes": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/WM-14/votes",
+                "votes": 0,
+                "hasVoted": false
+            }
+        }
+    },
+    {
+        "expand": "operations,versionedRepresentations,editmeta,changelog,customfield_10010.requestTypePractice,renderedFields",
+        "id": "10012",
+        "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/10012",
+        "key": "WM-13",
+        "fields": {
+            "statuscategorychangedate": "2022-03-29T09:40:33.129-0500",
+            "issuetype": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issuetype/10004",
+                "id": "10004",
+                "description": "A problem or error.",
+                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
+                "name": "Bug",
+                "subtask": false,
+                "avatarId": 10303,
+                "hierarchyLevel": 0
+            },
+            "timespent": null,
+            "customfield_10030": null,
+            "customfield_10031": null,
+            "project": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/project/10000",
+                "id": "10000",
+                "key": "WM",
+                "name": "Watermelon",
+                "projectTypeKey": "software",
+                "simplified": false,
+                "avatarUrls": {
+                    "48x48": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551",
+                    "24x24": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=small",
+                    "16x16": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=xsmall",
+                    "32x32": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/universal_avatar/view/type/project/avatar/10551?size=medium"
+                }
+            },
+            "customfield_10032": null,
+            "customfield_10033": null,
+            "fixVersions": [],
+            "aggregatetimespent": null,
+            "resolution": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/resolution/10000",
+                "id": "10000",
+                "description": "Work has been completed on this issue.",
+                "name": "Done"
+            },
+            "customfield_10029": [],
+            "resolutiondate": "2022-03-29T09:40:33.125-0500",
+            "workratio": -1,
+            "watches": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/WM-13/watchers",
+                "watchCount": 1,
+                "isWatching": false
+            },
+            "lastViewed": null,
+            "created": "2022-03-11T16:52:53.199-0500",
+            "customfield_10020": null,
+            "customfield_10021": null,
+            "customfield_10022": null,
+            "priority": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/priority/3",
+                "iconUrl": "https://watermelontools.atlassian.net/images/icons/priorities/medium.svg",
+                "name": "Medium",
+                "id": "3"
+            },
+            "customfield_10023": null,
+            "customfield_10024": null,
+            "customfield_10025": "10000_*:*_1_*:*_1111146236_*|*_10002_*:*_1_*:*_0_*|*_10003_*:*_1_*:*_418113735",
+            "labels": [],
+            "customfield_10016": null,
+            "customfield_10017": null,
+            "customfield_10018": {
+                "hasEpicLinkFieldDependency": false,
+                "showField": false,
+                "nonEditableReason": {
+                    "reason": "PLUGIN_LICENSE_ERROR",
+                    "message": "The Parent Link is only available to Jira Premium users."
+                }
+            },
+            "customfield_10019": "0|i0002n:",
+            "aggregatetimeoriginalestimate": null,
+            "timeestimate": null,
+            "versions": [],
+            "issuelinks": [],
+            "assignee": null,
+            "updated": "2022-03-29T09:40:33.128-0500",
+            "status": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/status/10002",
+                "description": "",
+                "iconUrl": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/",
+                "name": "Done",
+                "id": "10002",
+                "statusCategory": {
+                    "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/statuscategory/3",
+                    "id": 3,
+                    "key": "done",
+                    "colorName": "green",
+                    "name": "Done"
+                }
+            },
+            "components": [],
+            "timeoriginalestimate": null,
+            "description": {
+                "version": 1,
+                "type": "doc",
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "Given a user runs a Watermelon query"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "paragraph",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "When doRefactor is called"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "paragraph",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "Then it should render the issues gathered from all commit hashes, not just the first one. "
+                            }
+                        ]
+                    }
+                ]
+            },
+            "customfield_10010": null,
+            "customfield_10014": null,
+            "customfield_10015": null,
+            "customfield_10005": null,
+            "customfield_10006": null,
+            "security": null,
+            "customfield_10007": null,
+            "customfield_10008": null,
+            "customfield_10009": null,
+            "aggregatetimeestimate": null,
+            "summary": "Fix q: `hash:${arrayOfSHAs[0]}`",
+            "creator": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b6df506317006b092e68",
+                "accountId": "6205b6df506317006b092e68",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "24x24": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "16x16": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "32x32": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png"
+                },
+                "displayName": "Esteban Vargas",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "subtasks": [],
+            "reporter": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/user?accountId=6205b6df506317006b092e68",
+                "accountId": "6205b6df506317006b092e68",
+                "avatarUrls": {
+                    "48x48": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "24x24": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "16x16": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png",
+                    "32x32": "https://secure.gravatar.com/avatar/5b64b227427133e31a19b17937fbf1ad?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FEV-3.png"
+                },
+                "displayName": "Esteban Vargas",
+                "active": true,
+                "timeZone": "America/Bogota",
+                "accountType": "atlassian"
+            },
+            "aggregateprogress": {
+                "progress": 0,
+                "total": 0
+            },
+            "customfield_10001": null,
+            "customfield_10002": null,
+            "customfield_10003": null,
+            "customfield_10004": null,
+            "environment": null,
+            "duedate": null,
+            "progress": {
+                "progress": 0,
+                "total": 0
+            },
+            "votes": {
+                "self": "https://api.atlassian.com/ex/jira/d11c1bcb-03e8-4d49-bef8-b48cc5a1b516/rest/api/3/issue/WM-13/votes",
+                "votes": 0,
+                "hasVoted": false
+            }
+        }
+    }
+]
+
+
+```
