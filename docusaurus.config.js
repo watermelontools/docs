@@ -60,7 +60,7 @@ const config = {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "Tutorial",
+            label: "About Watermelon",
           },
           { to: "/blog", label: "Blog", position: "left" },
           {
@@ -77,7 +77,7 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Tutorial",
+                label: "About Watermelon",
                 to: "/docs/intro",
               },
             ],
