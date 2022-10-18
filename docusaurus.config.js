@@ -113,7 +113,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Watermelon Tool, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Watermelon Tools, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: darkCodeTheme,
