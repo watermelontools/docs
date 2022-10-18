@@ -2,46 +2,17 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# About Watermelon
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Welcome!
+[Watermelon Tools](https://watermelontools.com) is a company with a mission to make developing as a team easier. We started in February 2022 with a VSCode extension and have built on it.
 
-## Getting Started
+Our philosophy is to be Open Core, which means our most notable product, [our VSCode Extension](https://marketplace.visualstudio.com/items?itemName=WatermelonTools.watermelon-tools) is [Open Source](https://github.com/watermelontools/wm-extension). These are our Open Docs.
 
-Get started by **creating a new site**.
+## How to use
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+You will first have to register in [our app](https://app.watermelontools.com). This will create a token and sessions. You will also have to login on [VSCode](https://app.watermelontools.com/vscode) or [VSCode Insiders](https://app.watermelontools.com/vscode-insiders).
 
-### What you'll need
+## Paid features
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+We do have some paid features, including our Jira integration.
