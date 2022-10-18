@@ -21,5 +21,6 @@ yarn-error.log*
 
 .vercel
 
-.package-lock.json
-.yarn.lock
+package-lock.json
+
+yarn.lock
