@@ -1,0 +1,69 @@
+# Get Assigned Issues
+
+## Route
+
+```
+api/github/getAssignedIssues
+```
+
+## Method
+
+POST
+
+## Params
+
+```
+{
+    "user": "string",
+    "repo": "string",
+    "owner": "string",
+}
+```
+
+Where:
+
+- user: email of the user to search (registry on app). Not necessarily GitHub email.
+- repo: name of the repo to search.
+- owner: owner of the repo to search.
+
+## Response
+
+### Errors
+
+If the user does not exist, there will be no access token
+
+```
+{
+    "error": "no access_token"
+}
+```
+
+If nothing comes in the `user` param
+
+```
+{
+    "error": "no user"
+}
+```
+
+If nothing comes in the `repo` param
+
+```
+{
+    "error": "no repo"
+}
+```
+
+If nothing comes in the `owner` param
+
+```
+{
+    "error": "no owner"
+}
+```
+
+### Success
+
+```
+[]
+```
