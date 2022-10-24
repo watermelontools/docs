@@ -1,0 +1,134 @@
+# Get Issue
+
+Note: this will prepend a "🍉" to the text.
+
+## Route
+
+```
+api/github/getIssue
+```
+
+## Method
+
+POST
+
+## Params
+
+```
+{
+    "user": "string",
+    "repo": "string",
+    "owner": "string",
+    "issue_number": number,
+    "comment_body": "string"
+}
+```
+
+Where:
+
+- user: email of the user to search (registry on app). Not necessarily GitHub email.
+- repo: name of the repo to search.
+- owner: owner of the repo to search.
+- issue_number: number of the issue to search.
+- comment_body: body of the comment to add, allows markdown.
+
+## Response
+
+### Errors
+
+If the user does not exist, there will be no access token
+
+```
+{
+    "error": "no access_token"
+}
+```
+
+If nothing comes in the `user` param
+
+```
+{
+    "error": "no user"
+}
+```
+
+If nothing comes in the `repo` param
+
+```
+{
+    "error": "no repo"
+}
+```
+
+If nothing comes in the `owner` param
+
+```
+{
+    "error": "no owner"
+}
+```
+
+If nothing comes in the `issue_number` param
+
+```
+{
+    "error": "no issue_number"
+}
+```
+
+If nothing comes in the `comment_body` param
+
+```
+{
+    "error": "no comment_body"
+}
+```
+
+### Success
+
+```
+{
+    "url": "https://api.github.com/repos/watermelontools/watermelon/issues/comments/1287178565",
+    "html_url": "https://github.com/watermelontools/watermelon/pull/98#issuecomment-1287178565",
+    "issue_url": "https://api.github.com/repos/watermelontools/watermelon/issues/98",
+    "id": 1287178565,
+    "node_id": "IC_kwDOEzNtoc5MuMlF",
+    "user": {
+        "login": "EstebanDalelR",
+        "id": 11527621,
+        "node_id": "MDQ6VXNlcjExNTI3NjIx",
+        "avatar_url": "https://avatars.githubusercontent.com/u/11527621?u=c72a37707f3568e336ab272d11f83e1a33e2a8c1&v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/EstebanDalelR",
+        "html_url": "https://github.com/EstebanDalelR",
+        "followers_url": "https://api.github.com/users/EstebanDalelR/followers",
+        "following_url": "https://api.github.com/users/EstebanDalelR/following{/other_user}",
+        "gists_url": "https://api.github.com/users/EstebanDalelR/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/EstebanDalelR/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/EstebanDalelR/subscriptions",
+        "organizations_url": "https://api.github.com/users/EstebanDalelR/orgs",
+        "repos_url": "https://api.github.com/users/EstebanDalelR/repos",
+        "events_url": "https://api.github.com/users/EstebanDalelR/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/EstebanDalelR/received_events",
+        "type": "User",
+        "site_admin": false
+    },
+    "created_at": "2022-10-21T16:19:51Z",
+    "updated_at": "2022-10-21T16:19:51Z",
+    "author_association": "COLLABORATOR",
+    "body": "🍉hi hi, *markdown* _text_",
+    "reactions": {
+        "url": "https://api.github.com/repos/watermelontools/watermelon/issues/comments/1287178565/reactions",
+        "total_count": 0,
+        "+1": 0,
+        "-1": 0,
+        "laugh": 0,
+        "hooray": 0,
+        "confused": 0,
+        "heart": 0,
+        "rocket": 0,
+        "eyes": 0
+    },
+    "performed_via_github_app": null
+}
+```
