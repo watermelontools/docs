@@ -97,7 +97,7 @@ const config = {
             items: [
               {
                 label: "LinkedIn",
-                to: "https://www.linkedin.com/company/watermelon-tools/",
+                href: "https://www.linkedin.com/company/watermelon-tools/",
               },
               {
                 label: "GitHub",
