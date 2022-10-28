@@ -96,8 +96,8 @@ const config = {
             title: "More",
             items: [
               {
-                label: "Twitter",
-                to: "https://twitter.com/watermelontools",
+                label: "LinkedIn",
+                to: "https://www.linkedin.com/company/watermelon-tools/",
               },
               {
                 label: "GitHub",
