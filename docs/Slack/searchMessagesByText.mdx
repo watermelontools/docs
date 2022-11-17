@@ -1,0 +1,1028 @@
+# Search Messages by Text
+
+## Route
+
+```
+api/slack/searchMessagesByText
+```
+
+## Method
+
+POST
+
+## Params
+
+```
+{
+    "user": "string",
+    "text": "string"
+}
+```
+
+Where:
+
+- user: email of the user to search (registry on app). Not necessarily Slack email.
+- text: search query.
+
+## Response
+
+### Errors
+
+If the user does not exist, there will be no user token
+
+```
+{
+    "error": "no user_token"
+}
+```
+
+If nothing comes in the `user` param
+
+```
+{
+    "error": "no user"
+}
+```
+
+If nothing comes in the `text` param
+
+```
+{
+    "error": "no text"
+}
+```
+
+### Success
+
+```
+{
+    "ok": true,
+    "query": "postman",
+    "messages": {
+        "total": 31,
+        "pagination": {
+            "total_count": 31,
+            "page": 1,
+            "per_page": 20,
+            "page_count": 2,
+            "first": 1,
+            "last": 20
+        },
+        "paging": {
+            "count": 20,
+            "total": 31,
+            "page": 1,
+            "pages": 2
+        },
+        "matches": [
+            {
+                "iid": "4c78a0aa-2365-4c37-9355-4090219ee559",
+                "team": "T027L8BCRNG",
+                "score": 1052.9814,
+                "channel": {
+                    "id": "C027L8BD2EQ",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "dev",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U026ZAJH3B9",
+                "username": "edalel",
+                "ts": "1668036055.858779",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "J69",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "postman"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "postman",
+                "permalink": "https://watermelonsudo.slack.com/archives/C027L8BD2EQ/p1668036055858779",
+                "no_reactions": true
+            },
+            {
+                "iid": "398934c8-5baf-4509-ada9-24fd3b0fff45",
+                "team": "T027L8BCRNG",
+                "score": 356.9513,
+                "channel": {
+                    "id": "C036L0P80P4",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "product",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U026ZAJH3B9",
+                "username": "edalel",
+                "ts": "1657302741.565369",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "/GkW",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Interesting thought\nDocumentation is Postman"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "Interesting thought\nDocumentation is Postman",
+                "permalink": "https://watermelonsudo.slack.com/archives/C036L0P80P4/p1657302741565369?thread_ts=1657302741.565369",
+                "no_reactions": true
+            },
+            {
+                "iid": "96dc2778-fc70-43cc-b50c-7b57e1d23982",
+                "team": "T027L8BCRNG",
+                "score": 1050.5364,
+                "channel": {
+                    "id": "C027L8BD2EQ",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "dev",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U026ZAJH3B9",
+                "username": "edalel",
+                "ts": "1668035974.280969",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "lUrv",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "postman"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "postman",
+                "permalink": "https://watermelonsudo.slack.com/archives/C027L8BD2EQ/p1668035974280969",
+                "no_reactions": true
+            },
+            {
+                "iid": "d712727c-5801-4d45-a093-9b6948eada61",
+                "team": "T027L8BCRNG",
+                "score": 399.16763,
+                "channel": {
+                    "id": "C027L8BD2EQ",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "dev",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U02779T4TDL",
+                "username": "evargas",
+                "ts": "1664311090.203889",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "Y9ak4",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "First of all calm down. If you wanna solve stuff in general (not just this issue), you just can't bash people for not being there when they're having lunch/doing errands. I understand you're mad at the Aptuno thing, but don't let that ruin your day with me pls.\n\nSecond, you should calm down. No user is being affected by this. It's staging, and this is what it's for. I haven't bashed you when stuff has broken on prod (stays loading for ever, info stacks up, not working for certain users such as Vidal, etc.) because I know the nature of startup engineering. Also, I wanna say that I don't bash you when you talk to angel investors who say yes and then no (Luis), or when you do a user interview and exude arrogance, or when you give people the impression that we hate each other. I'm not going to do so, because I want a culture that's open to experimentation. I want you, to not be like that, and show you a good example in me.\n\nThird, when I was doing this in my remote branch in SF, it worked. It's not working here. Why? I don't know, you're the CTO. On the dev channel I summarized my debugging process to help you get some clue. Sometimes you act like my rival and not like my partner, and it feels very bad. This bug, is an example of such situation. You bash, and simply say \"it works on Postman, not on VS Code\" (thing that I clearly know as well). You're not saying something like \"Let my try calling the API on the extension to see what's wrong.\"\n\nFourth, speed? Yes, it's all about speed. With 10 months of runway, it's all about speed. You shouldn't expect stuff to be pixel-perfect at this stage. Critical errors shouldn't be deployed to prod, this error isn't being deployed to prod, I agree with that. Just don't expect everything to be pixel perfect. Again, this is not a corporate that has different problems to worry about (scaling, instead of finding PMF like us).\n\nFifth, taking a step forward: I don't wanna hire any engineer if you're gonna be that kind of engineering leader. People will think you're very arrogant, and that's detrimental for a workplace. We definitely need to fix this before thinking about even raising money to do so.\n\nFinally, I will turn off the car lights, and go to your desk to try to solve this. With the attitude of a partner (how it should be), not with the attitude of a rival."
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "First of all calm down. If you wanna solve stuff in general (not just this issue), you just can't bash people for not being there when they're having lunch/doing errands. I understand you're mad at the Aptuno thing, but don't let that ruin your day with me pls.\n\nSecond, you should calm down. No user is being affected by this. It's staging, and this is what it's for. I haven't bashed you when stuff has broken on prod (stays loading for ever, info stacks up, not working for certain users such as Vidal, etc.) because I know the nature of startup engineering. Also, I wanna say that I don't bash you when you talk to angel investors who say yes and then no (Luis), or when you do a user interview and exude arrogance, or when you give people the impression that we hate each other. I'm not going to do so, because I want a culture that's open to experimentation. I want you, to not be like that, and show you a good example in me.\n\nThird, when I was doing this in my remote branch in SF, it worked. It's not working here. Why? I don't know, you're the CTO. On the dev channel I summarized my debugging process to help you get some clue. Sometimes you act like my rival and not like my partner, and it feels very bad. This bug, is an example of such situation. You bash, and simply say \"it works on Postman, not on VS Code\" (thing that I clearly know as well). You're not saying something like \"Let my try calling the API on the extension to see what's wrong.\"\n\nFourth, speed? Yes, it's all about speed. With 10 months of runway, it's all about speed. You shouldn't expect stuff to be pixel-perfect at this stage. Critical errors shouldn't be deployed to prod, this error isn't being deployed to prod, I agree with that. Just don't expect everything to be pixel perfect. Again, this is not a corporate that has different problems to worry about (scaling, instead of finding PMF like us).\n\nFifth, taking a step forward: I don't wanna hire any engineer if you're gonna be that kind of engineering leader. People will think you're very arrogant, and that's detrimental for a workplace. We definitely need to fix this before thinking about even raising money to do so.\n\nFinally, I will turn off the car lights, and go to your desk to try to solve this. With the attitude of a partner (how it should be), not with the attitude of a rival.",
+                "permalink": "https://watermelonsudo.slack.com/archives/C027L8BD2EQ/p1664311090203889?thread_ts=1664226927.757059",
+                "no_reactions": true
+            },
+            {
+                "iid": "2059d88c-a975-40c2-b647-f2b7281eaf0d",
+                "team": "T027L8BCRNG",
+                "score": 410.73514,
+                "channel": {
+                    "id": "C027L8BD2EQ",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "dev",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U026ZAJH3B9",
+                "username": "edalel",
+                "ts": "1666272481.773309",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "ppC9V",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Yes and no, seems that we would have to keep two different Postman collections"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "Yes and no, seems that we would have to keep two different Postman collections",
+                "permalink": "https://watermelonsudo.slack.com/archives/C027L8BD2EQ/p1666272481773309?thread_ts=1666272292.907509",
+                "no_reactions": true
+            },
+            {
+                "iid": "0944ee40-d435-4ad0-875d-64bbe832699f",
+                "team": "T027L8BCRNG",
+                "score": 98.73024,
+                "channel": {
+                    "id": "C042ZR3M9GA",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "jira-debug",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U026ZAJH3B9",
+                "username": "edalel",
+                "ts": "1663621848.713589",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "hTDIN",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "For what are you using postman?"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "For what are you using postman?",
+                "permalink": "https://watermelonsudo.slack.com/archives/C042ZR3M9GA/p1663621848713589",
+                "no_reactions": true
+            },
+            {
+                "iid": "21a7cc69-5468-4ee8-a5ed-348d4f080fb7",
+                "team": "T027L8BCRNG",
+                "score": 98.73024,
+                "channel": {
+                    "id": "C042ZR3M9GA",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "jira-debug",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U026ZAJH3B9",
+                "username": "edalel",
+                "ts": "1663621878.947209",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "piWP",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Which endpoint are you calling using postman?"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "Which endpoint are you calling using postman?",
+                "permalink": "https://watermelonsudo.slack.com/archives/C042ZR3M9GA/p1663621878947209",
+                "no_reactions": true
+            },
+            {
+                "iid": "bf0c10d8-6c2e-4c3a-9025-a653a250c074",
+                "team": "T027L8BCRNG",
+                "score": 98.73005,
+                "channel": {
+                    "id": "C042ZR3M9GA",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "jira-debug",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U02779T4TDL",
+                "username": "evargas",
+                "ts": "1663621814.090319",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "hYREl",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "I'm using Postman"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "I'm using Postman",
+                "permalink": "https://watermelonsudo.slack.com/archives/C042ZR3M9GA/p1663621814090319",
+                "no_reactions": true
+            },
+            {
+                "iid": "dd105877-8f85-4f02-8558-60ecefc92b45",
+                "team": "T027L8BCRNG",
+                "score": 62.999176,
+                "channel": {
+                    "id": "C027L8BD2EQ",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "dev",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U02779T4TDL",
+                "username": "evargas",
+                "ts": "1666272334.654239",
+                "attachments": [
+                    {
+                        "from_url": "https://www.theneo.io/",
+                        "image_url": "https://assets.website-files.com/61f7e03934c23c1dcc9c3cd4/61fd8ede72192947ba6a07ef_screencapture-app-staging-theneo-io-editor-6102fd46ca0084053b0e4942-2022-02-04-21_42_34%20(1)-p-1600.png",
+                        "image_width": 357,
+                        "image_height": 250,
+                        "image_bytes": 164380,
+                        "id": 1,
+                        "original_url": "https://www.theneo.io/",
+                        "fallback": "Theneo: High-Quality &amp; Interactive API Docs",
+                        "text": "Generate Stripe-like API docs in just a few clicks. We support OpenAPI, Postman, GraphQL and much more.",
+                        "title": "Theneo: High-Quality &amp; Interactive API Docs",
+                        "title_link": "https://www.theneo.io/",
+                        "service_name": "theneo.io"
+                    }
+                ],
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "FpS",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "BTW, does this look useful?\n\n"
+                                    },
+                                    {
+                                        "type": "link",
+                                        "url": "https://www.theneo.io/"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "BTW, does this look useful?\n\n<https://www.theneo.io/>",
+                "permalink": "https://watermelonsudo.slack.com/archives/C027L8BD2EQ/p1666272334654239?thread_ts=1666272292.907509",
+                "no_reactions": true
+            },
+            {
+                "iid": "21a77473-c639-4009-a881-789afef01e1b",
+                "team": "T027L8BCRNG",
+                "score": 312.5342,
+                "channel": {
+                    "id": "C027L8BD2EQ",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "dev",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U026ZAJH3B9",
+                "username": "edalel",
+                "ts": "1648679240.733889",
+                "files": [
+                    {
+                        "id": "F039EEW3W8J",
+                        "created": 1648679235,
+                        "timestamp": 1648679235,
+                        "name": "image.png",
+                        "title": "image.png",
+                        "mimetype": "image/png",
+                        "filetype": "png",
+                        "pretty_type": "PNG",
+                        "user": "U026ZAJH3B9",
+                        "user_team": "T027L8BCRNG",
+                        "editable": false,
+                        "size": 31838,
+                        "mode": "hosted",
+                        "is_external": false,
+                        "external_type": "",
+                        "is_public": true,
+                        "public_url_shared": false,
+                        "display_as_bot": false,
+                        "username": "",
+                        "url_private": "https://files.slack.com/files-pri/T027L8BCRNG-F039EEW3W8J/image.png",
+                        "url_private_download": "https://files.slack.com/files-pri/T027L8BCRNG-F039EEW3W8J/download/image.png",
+                        "media_display_type": "unknown",
+                        "thumb_64": "https://files.slack.com/files-tmb/T027L8BCRNG-F039EEW3W8J-15c426203c/image_64.png",
+                        "thumb_80": "https://files.slack.com/files-tmb/T027L8BCRNG-F039EEW3W8J-15c426203c/image_80.png",
+                        "thumb_360": "https://files.slack.com/files-tmb/T027L8BCRNG-F039EEW3W8J-15c426203c/image_360.png",
+                        "thumb_360_w": 360,
+                        "thumb_360_h": 329,
+                        "thumb_480": "https://files.slack.com/files-tmb/T027L8BCRNG-F039EEW3W8J-15c426203c/image_480.png",
+                        "thumb_480_w": 480,
+                        "thumb_480_h": 438,
+                        "thumb_160": "https://files.slack.com/files-tmb/T027L8BCRNG-F039EEW3W8J-15c426203c/image_160.png",
+                        "original_w": 555,
+                        "original_h": 507,
+                        "thumb_tiny": "AwArADClxjvmgY96B+P50u0+h/OgA+X/AGqML6NQFPofzoHHY/nQAh29s0UuPY/nRj2P50ANopcZGefyox9fyoASijH1/KjFABRRRQAoYjoTRzjrSUbj60AKS3cmkyfWjJ9aNx9aADJoo3H1o3H1oA//2Q==",
+                        "permalink": "https://watermelonsudo.slack.com/files/U026ZAJH3B9/F039EEW3W8J/image.png",
+                        "permalink_public": "https://slack-files.com/T027L8BCRNG-F039EEW3W8J-47e900ddae",
+                        "has_rich_preview": false,
+                        "file_access": "visible"
+                    }
+                ],
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "6Zn",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Windows postman works"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "Windows postman works",
+                "permalink": "https://watermelonsudo.slack.com/archives/C027L8BD2EQ/p1648679240733889?thread_ts=1648678222.270839",
+                "no_reactions": true
+            },
+            {
+                "iid": "6527903a-ff0d-4b9a-8cd8-d66a8dddbc71",
+                "team": "T027L8BCRNG",
+                "score": 373.1969,
+                "channel": {
+                    "id": "C027L8BD2EQ",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "dev",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U02779T4TDL",
+                "username": "evargas",
+                "ts": "1660088904.572119",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "Pc1",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "resJson",
+                                        "style": {
+                                            "code": true
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": " on test.ts prints "
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "undefined",
+                                        "style": {
+                                            "code": true
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": " on Vercel. But the request is successful. Is that how is supposed to be? Or how are you sure that it worked 100% if it's not with the console log nor the postman console prompt?"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "resJson on test.ts prints undefined on Vercel. But the request is successful. Is that how is supposed to be? Or how are you sure that it worked 100% if it's not with the console log nor the postman console prompt?",
+                "permalink": "https://watermelonsudo.slack.com/archives/C027L8BD2EQ/p1660088904572119?thread_ts=1660088904.572119",
+                "no_reactions": true
+            },
+            {
+                "iid": "f2a87aac-a71a-4a0a-8eb2-719dedf793f8",
+                "team": "T027L8BCRNG",
+                "score": 311.84348,
+                "channel": {
+                    "id": "C027L8BD2EQ",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "dev",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U026ZAJH3B9",
+                "username": "edalel",
+                "ts": "1648594460.438109",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "Rt8",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "link",
+                                        "url": "https://watermelontools.postman.co"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "<https://watermelontools.postman.co>",
+                "permalink": "https://watermelonsudo.slack.com/archives/C027L8BD2EQ/p1648594460438109",
+                "no_reactions": true
+            },
+            {
+                "iid": "3c41da44-7d5a-4392-b962-c9dd3bf12834",
+                "team": "T027L8BCRNG",
+                "score": 397.9021,
+                "channel": {
+                    "id": "C027L8BD2EQ",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "dev",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U026ZAJH3B9",
+                "username": "edalel",
+                "ts": "1664300571.052939",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "t4K8z",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "I see in Postman that sending my email works"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "I see in Postman that sending my email works",
+                "permalink": "https://watermelonsudo.slack.com/archives/C027L8BD2EQ/p1664300571052939?thread_ts=1664226927.757059",
+                "no_reactions": true
+            },
+            {
+                "iid": "8d8157af-3db1-4f03-be0d-acfcefd67f27",
+                "team": "T027L8BCRNG",
+                "score": 98.43506,
+                "channel": {
+                    "id": "C042ZR3M9GA",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "jira-debug",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U026ZAJH3B9",
+                "username": "edalel",
+                "ts": "1663623154.796859",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "HL4WP",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "When using postman, what actions are taken for this error to show up"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "When using postman, what actions are taken for this error to show up",
+                "permalink": "https://watermelonsudo.slack.com/archives/C042ZR3M9GA/p1663623154796859?thread_ts=1663623052.081999",
+                "no_reactions": true
+            },
+            {
+                "iid": "bb4b22c3-43f9-4747-85a8-db0fdac09ed7",
+                "team": "T027L8BCRNG",
+                "score": 380.67474,
+                "channel": {
+                    "id": "C027L8BD2EQ",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "dev",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U026ZAJH3B9",
+                "username": "edalel",
+                "ts": "1661382051.652669",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "Wptf0",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "I updated the postman"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "I updated the postman",
+                "permalink": "https://watermelonsudo.slack.com/archives/C027L8BD2EQ/p1661382051652669",
+                "no_reactions": true
+            },
+            {
+                "iid": "aed8ede0-6cd7-44fd-877a-928b1e949830",
+                "team": "T027L8BCRNG",
+                "score": 98.35559,
+                "channel": {
+                    "id": "C042ZR3M9GA",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "jira-debug",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U026ZAJH3B9",
+                "username": "edalel",
+                "ts": "1663621601.994769",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "zN1",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "no, postman didn’t break “the thing”, we want to know why our tokens are being deprecated if they are being refreshed"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "no, postman didn’t break “the thing”, we want to know why our tokens are being deprecated if they are being refreshed",
+                "permalink": "https://watermelonsudo.slack.com/archives/C042ZR3M9GA/p1663621601994769"
+            },
+            {
+                "iid": "5686fcf4-29fb-40de-bad3-760f5aaf1862",
+                "team": "T027L8BCRNG",
+                "score": 98.54908,
+                "channel": {
+                    "id": "C042ZR3M9GA",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "jira-debug",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U02779T4TDL",
+                "username": "evargas",
+                "ts": "1663620915.117869",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "BTf5l",
+                        "elements": [
+                            {
+                                "type": "rich_text_list",
+                                "style": "ordered",
+                                "indent": 0,
+                                "elements": [
+                                    {
+                                        "type": "rich_text_section",
+                                        "elements": [
+                                            {
+                                                "type": "text",
+                                                "text": "Postman"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "border": 0
+                            }
+                        ]
+                    }
+                ],
+                "text": "1. Postman",
+                "permalink": "https://watermelonsudo.slack.com/archives/C042ZR3M9GA/p1663620915117869?thread_ts=1663620902.448749",
+                "no_reactions": true
+            },
+            {
+                "iid": "67071391-2bec-463c-9a6b-7f125a1d5470",
+                "team": "T027L8BCRNG",
+                "score": 98.45518,
+                "channel": {
+                    "id": "C042ZR3M9GA",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "jira-debug",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U02779T4TDL",
+                "username": "evargas",
+                "ts": "1663623129.973699",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "xXX04",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Postman console"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "Postman console",
+                "permalink": "https://watermelonsudo.slack.com/archives/C042ZR3M9GA/p1663623129973699?thread_ts=1663623052.081999",
+                "no_reactions": true
+            },
+            {
+                "iid": "2d86516b-db0f-4846-8cd6-5bdd8fcd647f",
+                "team": "T027L8BCRNG",
+                "score": 372.69812,
+                "channel": {
+                    "id": "C027L8BD2EQ",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "dev",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U02779T4TDL",
+                "username": "evargas",
+                "ts": "1660084469.704519",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "X2Jiw",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Ah no forget it, I already had this setup on postman"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "Ah no forget it, I already had this setup on postman",
+                "permalink": "https://watermelonsudo.slack.com/archives/C027L8BD2EQ/p1660084469704519",
+                "no_reactions": true
+            },
+            {
+                "iid": "5228e5ac-ab40-4556-b229-b63855458581",
+                "team": "T027L8BCRNG",
+                "score": 312.29965,
+                "channel": {
+                    "id": "C027L8BD2EQ",
+                    "is_channel": true,
+                    "is_group": false,
+                    "is_im": false,
+                    "name": "dev",
+                    "is_shared": false,
+                    "is_org_shared": false,
+                    "is_ext_shared": false,
+                    "is_private": false,
+                    "is_mpim": false,
+                    "pending_shared": [],
+                    "is_pending_ext_shared": false
+                },
+                "type": "message",
+                "user": "U02779T4TDL",
+                "username": "evargas",
+                "ts": "1648679346.746459",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "PDU2I",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Yeah Postman works"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "text": "Yeah Postman works",
+                "permalink": "https://watermelonsudo.slack.com/archives/C027L8BD2EQ/p1648679346746459?thread_ts=1648678222.270839",
+                "no_reactions": true
+            }
+        ]
+    }
+}
+```
