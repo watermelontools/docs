@@ -1,0 +1,41 @@
+# Add to GitHub Query Count
+
+## Route
+
+```
+api/github/addToGitHubQueryCount
+```
+
+## Method
+
+POST
+
+## Params
+
+```
+{
+    "email": "string",
+}
+```
+
+Where:
+
+- email: email of the user that will get an inactive payment status
+
+## Response
+
+### Errors
+
+If nothing comes in the `email` param
+
+```
+{
+    "error": "no email"
+}
+```
+
+### Success
+
+```
+[]
+```

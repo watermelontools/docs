@@ -1,0 +1,41 @@
+# Activate GitHub Query Count Payment Status
+
+## Route
+
+```
+api/github/activateGitHubQueryCountPaymentStatus
+```
+
+## Method
+
+POST
+
+## Params
+
+```
+{
+    "email": "string",
+}
+```
+
+Where:
+
+- email: email of the user that an admin adds as a teammate on billing flow
+
+## Response
+
+### Errors
+
+If nothing comes in the `email` param
+
+```
+{
+    "error": "no email"
+}
+```
+
+### Success
+
+```
+[]
+```
