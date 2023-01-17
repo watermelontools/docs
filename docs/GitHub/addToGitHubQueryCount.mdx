@@ -1,0 +1,41 @@
+# Add to GitHub Query Count
+
+## Route
+
+```
+api/github/addToGitHubQueryCount
+```
+
+## Method
+
+POST
+
+## Params
+
+```
+{
+    "email": "string",
+}
+```
+
+Where:
+
+- email: email of the user that got its most relevant pull request
+
+## Response
+
+### Errors
+
+If nothing comes in the `email` param
+
+```
+{
+    "error": "no email"
+}
+```
+
+### Success
+
+```
+[]
+```
