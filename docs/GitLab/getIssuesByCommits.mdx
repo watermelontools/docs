@@ -14,7 +14,8 @@ POST
 
 ```
 {
-    "project_id": "string",
+    "owner": "string",
+    "project_name": "string",
     "user": "string",
     "commitList": "string"
 }
@@ -23,7 +24,8 @@ POST
 Where:
 
 - user: email of the user to search (registry on app). Not necessarily GitHub email.
-- project_id: the id of the project the issue belongs to.
+- owner: the name of the owner of the git repo 
+- project_name: the name of the project the issue belongs to.
 - commitList: a comma separated array of SHAs to search.
 
 ## Response
@@ -47,11 +49,19 @@ If nothing comes in the `user` param
 }
 ```
 
-If nothing comes in the `project_id` param
+If nothing comes in the `owner` param
 
 ```
 {
-    "error": "no project_id"
+    "error": "no owner"
+}
+```
+
+If nothing comes in the `project_name` param
+
+```
+{
+    "error": "no project_name"
 }
 ```
 
