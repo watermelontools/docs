@@ -17,7 +17,8 @@ POST
 ```
 {
     "issue_iid": "string",
-    "project_id": "string",
+    "owner": "string"
+    "project_name": "string",
     "user": "string",
     "comment_body": "string"
 }
@@ -26,7 +27,8 @@ POST
 Where:
 
 - user: email of the user to search (registry on app). Not necessarily GitHub email.
-- project_id: the id of the project the issue belongs to.
+- owner: owner of the git repo
+- project_name: the name of the project the issue belongs to.
 - issue_iid: the iid for the issue, not the id.
 - comment_body: body of the comment to add, allows markdown.
 
@@ -50,11 +52,19 @@ If nothing comes in the `user` param
 }
 ```
 
-If nothing comes in the `project_id` param
+If nothing comes in the `owner` param
 
 ```
 {
-    "error": "no project_id"
+    "error": "no owner"
+}
+```
+
+If nothing comes in the `project_name` param
+
+```
+{
+    "error": "no project_name"
 }
 ```
 
