@@ -1,0 +1,198 @@
+# Get Pull Requests
+
+## Route
+
+```
+api/github/getPullRequests
+```
+
+## Method
+
+POST
+
+## Params
+
+```
+{
+    "userEmail": "string",
+    "repo_slug": "string",
+    "workspace": "string",
+    "commit_hash": "string"
+}
+```
+
+Where:
+
+- userEmail: email of the user to search (registry on app). Not necessarily GitHub email.
+- repo_slug: name of the repo to search.
+- workspace: owner of the repo to search.
+- commit_hash: commit hash obtained via git blame
+
+## Response
+
+### Errors
+
+If nothing comes in the `workspace` param
+
+```
+{
+    "error": "no workspace"
+}
+```
+
+If nothing comes in the `repo_slug` param
+
+```
+{
+    "error": "no repo_slug"
+}
+```
+
+If nothing comes in the `commit_hash` param
+
+```
+{
+    "error": "no commit_hash"
+}
+```
+
+### Success
+
+```
+{
+  "values": [
+    {
+      "version": 2154,
+      "locked": true,
+      "id": 1,
+      "state": "DECLINED",
+      "open": true,
+      "title": "Talking Nerdy",
+      "closed": true,
+      "toRef": {
+        "id": "refs/heads/feature-ABC-123",
+        "type": "BRANCH",
+        "latestCommit": "babecafebabecafebabecafebabecafebabecafe",
+        "displayId": "feature-ABC-1233",
+        "repository": {
+          "name": "My repo",
+          "id": 2154,
+          "state": "AVAILABLE",
+          "public": true,
+          "scmId": "git",
+          "slug": "my-repo",
+          "scope": "REPOSITORY",
+          "defaultBranch": "main",
+          "origin": {
+            "name": "My repo",
+            "id": 2154,
+            "state": "AVAILABLE",
+            "public": true,
+            "scmId": "git",
+            "slug": "my-repo",
+            "scope": "REPOSITORY",
+            "defaultBranch": "main",
+            "hierarchyId": "e3c939f9ef4a7fae272e",
+            "statusMessage": "Available",
+            "archived": true,
+            "forkable": true,
+            "description": "My repo description",
+            "partition": 2154,
+            "relatedLinks": {}
+          },
+          "hierarchyId": "e3c939f9ef4a7fae272e",
+          "statusMessage": "Available",
+          "archived": true,
+          "forkable": true,
+          "description": "My repo description",
+          "partition": 2154,
+          "relatedLinks": {}
+        }
+      },
+      "createdDate": 13590759200,
+      "fromRef": {
+        "id": "refs/heads/feature-ABC-123",
+        "type": "BRANCH",
+        "latestCommit": "babecafebabecafebabecafebabecafebabecafe",
+        "displayId": "feature-ABC-1233",
+        "repository": {
+          "name": "My repo",
+          "id": 2154,
+          "state": "AVAILABLE",
+          "public": true,
+          "scmId": "git",
+          "slug": "my-repo",
+          "scope": "REPOSITORY",
+          "defaultBranch": "main",
+          "origin": {
+            "name": "My repo",
+            "id": 2154,
+            "state": "AVAILABLE",
+            "public": true,
+            "scmId": "git",
+            "slug": "my-repo",
+            "scope": "REPOSITORY",
+            "defaultBranch": "main",
+            "hierarchyId": "e3c939f9ef4a7fae272e",
+            "statusMessage": "Available",
+            "archived": true,
+            "forkable": true,
+            "description": "My repo description",
+            "partition": 2154,
+            "relatedLinks": {}
+          },
+          "hierarchyId": "e3c939f9ef4a7fae272e",
+          "statusMessage": "Available",
+          "archived": true,
+          "forkable": true,
+          "description": "My repo description",
+          "partition": 2154,
+          "relatedLinks": {}
+        }
+      },
+      "participants": [
+        {
+          "role": "AUTHOR",
+          "user": {
+            "name": "jcitizen",
+            "id": 101,
+            "type": "NORMAL",
+            "displayName": "Jane Citizen",
+            "slug": "jcitizen",
+            "active": true,
+            "emailAddress": "jane@example.com"
+          },
+          "status": "UNAPPROVED",
+          "lastReviewedCommit": "7549846524f8aed2bd1c0249993ae1bf9d3c9998",
+          "approved": true
+        }
+      ],
+      "closedDate": 19990759200,
+      "reviewers": [
+        {
+          "role": "AUTHOR",
+          "user": {
+            "name": "jcitizen",
+            "id": 101,
+            "type": "NORMAL",
+            "displayName": "Jane Citizen",
+            "slug": "jcitizen",
+            "active": true,
+            "emailAddress": "jane@example.com"
+          },
+          "status": "UNAPPROVED",
+          "lastReviewedCommit": "7549846524f8aed2bd1c0249993ae1bf9d3c9998",
+          "approved": true
+        }
+      ],
+      "description": "It is a kludge, but put the tuple from the database in the cache.",
+      "updatedDate": 14490759200
+    }
+  ],
+  "size": 1,
+  "limit": 25,
+  "start": 2154,
+  "isLastPage": true,
+  "nextPageStart": 2154
+}
+```
