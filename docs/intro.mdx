@@ -4,14 +4,49 @@ sidebar_position: 1
 
 # Watermelon API
 
-We try to keep the API as simple as possible, and we currently offer only 3 endpoints.
+We try to keep the API as simple as possible, and we currently offer only 3 endpoints. We will return the full context taking into consideration the user's connected services and their settings.
 
 ## Actions
 
+To be used to comment from GitHub, not currently open.
+This endpoint will write a comment to the PR.
+
 ### Context
+
+Will return the whole context as a Markdown Comment in the PR.
 
 ## Extension
 
+To be used from the IDEs.
+
 ### Hover
 
+Will return a list of single element hits for the connected services. Does _not_ return an AI summary.
+
 ### Context
+
+Recieves:
+
+```js
+{
+    email: string,
+    gitSystem: "github"| "gitlab"| "bitbucket",
+    repo: string,
+    owner: string,
+    commitList: string[]
+}
+```
+
+Returns an array of services that contain the same information.
+
+```js
+{
+    [serviceName]: {
+    title: string;
+    body?: string;
+    link?: string;
+    number?: number | string;
+    image?: string;
+    }[]
+}
+```
