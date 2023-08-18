@@ -2,6 +2,15 @@
 sidebar_position: 1
 ---
 
+import GitHubLogo from "../static/logos/github.svg";
+import GitLabLogo from "../static/logos/gitlab.svg";
+import BitbucketLogo from "../static/logos/bitbucket.svg";
+import JiraLogo from "../static/logos/jira.svg";
+import ConfluenceLogo from "../static/logos/confluence.svg";
+import NotionLogo from "../static/logos/notion.svg";
+import SlackLogo from "../static/logos/slack.svg";
+import LinearLogo from "../static/logos/linear.svg";
+
 # Watermelon API
 
 We try to keep the API as simple as possible, and we currently offer only 3 endpoints. We will return the full context taking into consideration the user's connected services and their settings.
@@ -56,87 +65,45 @@ Returns an array of services that contain the same information.
 The current supported list of services is:
 
 <ul>
-  <li>
-    <strong>Git Platforms</strong>
-    <ul>
-      <li>
-        <img
-          src="../public/logos/github.svg"
-          alt="GitHub Logo"
-          width="20"
-          height="20"
-        />{" "}
-        GitHub
-      </li>
-      <li>
-        <img
-          src="../public/logos/gitlab.svg"
-          alt="GitLab Logo"
-          width="20"
-          height="20"
-        />{" "}
-        GitLab
-      </li>
-      <li>
-        <img
-          src="../public/logos/bitbucket.svg"
-          alt="Bitbucket Logo"
-          width="20"
-          height="20"
-        />{" "}
-        Bitbucket
-      </li>
-    </ul>
-  </li>
-  <li>
-    <strong>Ticketing</strong>
-    <ul>
-      <li>
-        <img
-          src="../public/logos/jira.svg"
-          alt="Jira Logo"
-          width="20"
-          height="20"
-        />{" "}
-        Jira
-      </li>
-    </ul>
-  </li>
-  <li>
-    <strong>Documentation</strong>
-    <ul>
-      <li>
-        <img
-          src="../public/logos/confluence.svg"
-          alt="Confluence Logo"
-          width="20"
-          height="20"
-        />{" "}
-        Confluence
-      </li>
-      <li>
-        <img
-          src="../public/logos/notion.svg"
-          alt="Notion Logo"
-          width="20"
-          height="20"
-        />{" "}
-        Notion
-      </li>
-    </ul>
-  </li>
-  <li>
-    <strong>Messaging</strong>
-    <ul>
-      <li>
-        <img
-          src="../public/logos/slack.svg"
-          alt="Slack Logo"
-          width="20"
-          height="20"
-        />{" "}
-        Slack
-      </li>
-    </ul>
-  </li>
+  <strong>Git Platforms</strong>
+  <ul>
+    <li>
+      <GithubLogo width="20" height="20" /> GitHub
+    </li>
+    <li>
+      <GitLabLogo width="20" height="20" /> GitLab
+    </li>
+    <li>
+      <BitbucketLogo width="20" height="20" /> Bitbucket
+    </li>
+  </ul>
+  <strong>Ticketing</strong>
+  <ul>
+    <li>
+      {" "}
+      <JiraLogo width="20" height="20" /> Jira
+    </li>
+    <li>
+      {" "}
+      <LinearLogo width="20" height="20" /> Linear
+    </li>
+  </ul>
+  <strong>Documentation</strong>
+  <ul>
+    <li>
+      {" "}
+      <ConfluenceLogo width="20" height="20" /> Confluence
+    </li>
+    <li>
+      {" "}
+      <NotionLogo width="20" height="20" /> Notion
+    </li>
+  </ul>
+  <strong>Communication</strong>
+  <ul>
+    <li>
+      {" "}
+      <SlackLogo width="20" height="20" /> Slack
+    </li>
+  </ul>
 </ul>
