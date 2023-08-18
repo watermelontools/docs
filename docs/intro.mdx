@@ -2,26 +2,141 @@
 sidebar_position: 1
 ---
 
-# About Watermelon
+# Watermelon API
 
-Welcome!
-[Watermelon Tools](https://watermelontools.com) is a company with a mission to make developing as a team easier.
-We started in February 2022 with a [VSCode extension](https://marketplace.visualstudio.com/items?itemName=WatermelonTools.watermelon-tools) and have built on it.
-We are now focused on helping you deliver PRs with business value with our [GitHub App](https://github.com/marketplace/watermelon-context).
+We try to keep the API as simple as possible, and we currently offer only 3 endpoints. We will return the full context taking into consideration the user's connected services and their settings.
 
-## How to use
+## Actions
 
-You will first have to register in [our app](https://app.watermelontools.com). This will create a token and sessions, and will allow you to connect your services.
+To be used to comment from GitHub, not currently open.
+This endpoint will write a comment to the PR.
 
-### VSCode Extension
+### Context
 
-You will also have to login on [VSCode](https://app.watermelontools.com/vscode) or [VSCode Insiders](https://app.watermelontools.com/vscode-insiders).
-We also work with [VSCodium](https://app.watermelontools.com/vscodium), the libre version.
+Will return the whole context as a Markdown Comment in the PR.
 
-### GitHub App
+## Extension
 
-You can install [the GitHub App](https://github.com/marketplace/watermelon-context) from the markeplace, and we will start writing to all of your PRs with any info we find.
+To be used from the IDEs.
 
-## Contributing
+### Hover
 
-We are a source available company. You can find all of our repos [in GitHub](https://github.com/watermelontools)
+Will return a list of single element hits for the connected services. Does _not_ return an AI summary.
+
+### Context
+
+Recieves:
+
+```js
+{
+    email: string,
+    gitSystem: "github"| "gitlab"| "bitbucket",
+    repo: string,
+    owner: string,
+    commitList: string[]
+}
+```
+
+Returns an array of services that contain the same information.
+
+```js
+{
+    [serviceName]: {
+    title: string;
+    body?: string;
+    link?: string;
+    number?: number | string;
+    image?: string;
+    }[]
+}
+```
+
+## services
+
+The current supported list of services is:
+
+<ul>
+  <li>
+    <strong>Git Platforms</strong>
+    <ul>
+      <li>
+        <img
+          src="/public/logos/github.svg"
+          alt="GitHub Logo"
+          width="20"
+          height="20"
+        />{" "}
+        GitHub
+      </li>
+      <li>
+        <img
+          src="/public/logos/gitlab.svg"
+          alt="GitLab Logo"
+          width="20"
+          height="20"
+        />{" "}
+        GitLab
+      </li>
+      <li>
+        <img
+          src="/public/logos/bitbucket.svg"
+          alt="Bitbucket Logo"
+          width="20"
+          height="20"
+        />{" "}
+        Bitbucket
+      </li>
+    </ul>
+  </li>
+  <li>
+    <strong>Ticketing</strong>
+    <ul>
+      <li>
+        <img
+          src="/public/logos/jira.svg"
+          alt="Jira Logo"
+          width="20"
+          height="20"
+        />{" "}
+        Jira
+      </li>
+    </ul>
+  </li>
+  <li>
+    <strong>Documentation</strong>
+    <ul>
+      <li>
+        <img
+          src="/public/logos/confluence.svg"
+          alt="Confluence Logo"
+          width="20"
+          height="20"
+        />{" "}
+        Confluence
+      </li>
+      <li>
+        <img
+          src="/public/logos/notion.svg"
+          alt="Notion Logo"
+          width="20"
+          height="20"
+        />{" "}
+        Notion
+      </li>
+    </ul>
+  </li>
+  <li>
+    <strong>Messaging</strong>
+    <ul>
+      <li>
+        <img
+          src="/public/logos/slack.svg"
+          alt="Slack Logo"
+          width="20"
+          height="20"
+        />{" "}
+        Slack
+      </li>
+    </ul>
+  </li>
+</ul>
