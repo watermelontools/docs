@@ -2,6 +2,29 @@
 sidebar_position: 6
 ---
 
+# How Watermelon handles Security
+
+## Overview
+As part of our commitment to transparency and building in public, all of our products are open-source. Being open-source has a wide range of benefits for our users and one of them is that it forces us to build software that's safe. To keep track of this for the general audience, in the README of each one of our repositories, you can find the OSSF scorecard badge that provides a security health metric for the codebase. 
+
+## Encryption
+Watermelon use HTTPS for all networking in our products. Your data never travels through our API, or the APIs of the services that we integrate, without being encrypted. 
+
+We use [Vercel Secrets](https://vercel.com/docs/cli/secrets) to store and automatically encrypt all environment variables. 
+
+## Authentication 
+We use [NextAuth](https://next-auth.js.org/) for authentication to our platform. This open-source library is convenient because it makes use of signed and pre-fixed cookies, without depending on client-side JavaScript. 
+
+To authenticate to different service providers, we store your oAuth token for each service on our Azure DB. 
+
+## Permissions
+When you setup Watermelon you authorize your version control system (GitHub, GitLab or Bitbucket) to read your private repositories. The oAuth scopes of these platforms use an "all or nothing" permission model. It's not possible to only select some repositories on your organization. We recognize the desire for more refined and granular scopes in version control systems and are continuously working towards improvements. In the spirit of full transparency, all of our codebases are open-source, ensuring Watermelon's dedication to safeguarding and respecting user code and data.
+
+## We don't store your code 
+One of the main reasons we decided to open-source our product is to be able to show, the easiest way possible to our users, that we don't store their code. 
+
+The metadata from your codebase that we do read and send to our APIs to make our passive doucmentation search engine work, are commit messages, commit hashes, and Pull Request metadata. 
+
 ### Improve this document
 Our documentation, as well as our products and our company handbook, are open-source and [available on GitHub](https://github.com/watermelontools/docs). We welcome your contributions. 
 - [Open an issue](https://github.com/watermelontools/docs/issues/new) to report a problem on this page
